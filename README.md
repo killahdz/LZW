@@ -33,42 +33,21 @@ Developed in 2004 as a university assignment, this project was built using only 
 - Basic understanding of Java and compression algorithms
 
 ### Installation
-1. Clone the repository:
+- Clone the repository:
    ```bash
    git clone https://github.com/yourusername/lzw-compression.git
-
-
-Navigate to the project directory:cd lzw-compression
-
-
-Compile the Java files:javac lzw/*.java
+- Navigate to the project directory:cd lzw-compression
+- Compile the Java files:javac lzw/*.java
 
 
 
 ## Usage
 
 Run the program with a .txt file to compress or a .lzw file to decompress:java lzw.Lzw input.txt
-
-
 Compresses input.txt to input.lzw.
 Decompresses input.lzw to input2.txt.
-
-
 To debug, generate log files by uncommenting ls initialization in Compress.java and Decompress.java, then run:java lzw.logTester
-
-
 Compares logCompress.txt and logDecompress.txt for mismatches.
-
-
-
-## Example
-$ echo "hello world" > test.txt
-$ java lzw.Lzw test.txt
-# Creates test.lzw
-$ java lzw.Lzw test.lzw
-# Creates test2.txt (identical to test.txt)
-$ java lzw.logTester
-# Outputs any log mismatches (if logs enabled)
 
 ## Project Structure
 
