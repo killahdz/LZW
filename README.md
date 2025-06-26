@@ -86,9 +86,9 @@ Open a pull request.
 This project is licensed under the MIT License. See the LICENSE file for details.
 Acknowledgments
 
-Developed as a 2004 university assignment under time and resource constraints.
+Developed in 2004 at Waikato University. 
 Inspired by the LZW algorithm and its applications in data compression.
 Thanks to my professor for providing clear pseudocode to guide this implementation.
 
 ∞ Daniel Kereama ∞
-=====================```
+
