@@ -1,11 +1,5 @@
-       ____ _          
-      |    | |         
-      |____| |___      
-      |    |  _  |     
-      |    | | | |     
-      |____|_| |_|     
-      LZW Compression
-=====================
+## LZW Compression (java)
+
 
 ## Overview
 This project is a Java implementation of the LZW compression algorithm, developed as a university assignment in 2004. Built without access to modern tools like AI or Stack Overflow, it demonstrates a from-scratch approach to compression and decompression using a `Trie` data structure and optimized bit-packing. The project serves as an educational reference for understanding LZW and dictionary-based compression techniques.
