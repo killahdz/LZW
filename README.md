@@ -1,88 +1,145 @@
-## LZW Compression (java)
+# LZW Compression (Java)
 
+A from-scratch Java implementation of the LZW compression algorithm, originally developed as a university assignment in 2004. This project showcases foundational understanding of compression, data structures, and low-level bit manipulation—written without modern conveniences like Stack Overflow or AI.
 
-## Overview
-This project is a Java implementation of the LZW compression algorithm, developed as a university assignment in 2004. Built without access to modern tools like AI or Stack Overflow, it demonstrates a from-scratch approach to compression and decompression using a `Trie` data structure and optimized bit-packing. The project serves as an educational reference for understanding LZW and dictionary-based compression techniques.
+---
 
-The implementation supports compressing `.txt` files into `.lzw` format and decompressing them back, with a focus on variable-length code handling and efficient dictionary management. A debugging tool, `logTester.java`, verifies compression/decompression consistency.
+## 📘 Overview
 
-## Purpose
-This project was created to deepen my understanding of data compression and data structures during my university studies. It showcases problem-solving, algorithm implementation, and bit manipulation in Java, making it a valuable portfolio piece for demonstrating foundational coding skills.
+This project demonstrates how to compress and decompress `.txt` files using **Lempel–Ziv–Welch (LZW)**. The implementation features a `Trie`-based dictionary for encoding and optimized bit-packing for output size efficiency.
 
-## Features
-- **LZW Compression/Decompression**: Implements the LZW algorithm for text files, supporting variable-length codes (10-32 bits).
-- **Trie-Based Dictionary**: Uses a `Trie` for efficient prefix matching in compression, with a `String` array fallback in decompression for faster lookups.
-- **Bit Packing**: Handles variable-length code output with optimized bit manipulation.
-- **Debugging Support**: Includes `logTester.java` to compare compression/decompression logs for debugging.
-- **Error Handling**: Validates input files and handles I/O errors gracefully.
-- **Documentation**: Comprehensive Javadoc and in-code comments explain complex logic.
+The code supports:
+- Compressing `.txt` files into `.lzw`
+- Decompressing `.lzw` files back to `.txt`
+- Debugging with a custom log comparison tool (`logTester.java`)
 
-## Historical Context
-Developed in 2004 as a university assignment, this project was built using only provided pseudocode, textbooks, and Emacs. Without access to modern resources like Stack Overflow or AI tools, it reflects independent problem-solving and a deep dive into LZW's mechanics.
+---
 
-## Getting Started
+## 🎯 Purpose
+
+Created to deepen understanding of:
+- Algorithmic problem solving
+- Bit-level data manipulation
+- Data compression techniques
+- Java fundamentals under constrained tooling
+
+The project reflects independent design, coding, and debugging—valuable for showcasing problem-solving discipline in your portfolio.
+
+---
+
+## ✨ Features
+
+- **Full LZW implementation** for `.txt` ↔ `.lzw` file formats
+- **Variable-length codes** (10–32 bits) for compression
+- **Trie-based dictionary** for fast prefix matching during compression
+- **Fallback string array** in decompression for performance
+- **Bit-packing logic** with efficient memory use
+- **Error handling** for invalid input and I/O failures
+- **Debugging tools** (`logTester`) for log comparison
+- **Thorough inline comments** and Javadoc
+
+---
+
+## 🕰️ Historical Context
+
+- Developed in 2004 at the University of Waikato
+- Built using **Emacs**, pseudocode, and textbooks
+- Written before Stack Overflow or GitHub Copilot existed
+- A true reflection of manual problem-solving and algorithmic understanding
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-- Java Development Kit (JDK) 1.4 or higher (compatible with 2004 standards)
-- Basic understanding of Java and compression algorithms
+- Java Development Kit (JDK) 1.4 or higher (backward-compatible with original source)
+- Basic Java knowledge
 
 ### Installation
-- Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/lzw-compression.git
-- Navigate to the project directory:cd lzw-compression
-- Compile the Java files:javac lzw/*.java
 
+1. Clone the repository  
+   `git clone https://github.com/yourusername/lzw-compression.git`
 
+2. Navigate to the project directory  
+   `cd lzw-compression`
 
-## Usage
+3. Compile the source files  
+   `javac lzw/*.java`
 
-Run the program with a .txt file to compress or a .lzw file to decompress:java lzw.Lzw input.txt
-Compresses input.txt to input.lzw.
-Decompresses input.lzw to input2.txt.
-To debug, generate log files by uncommenting ls initialization in Compress.java and Decompress.java, then run:java lzw.logTester
-Compares logCompress.txt and logDecompress.txt for mismatches.
+---
 
-## Project Structure
+## ⚙️ Usage
 
-Lzw.java: Entry point, validates input and routes to compression/decompression.
-Compress.java: Implements LZW compression using a Trie dictionary.
-Decompress.java: Implements LZW decompression with Trie and String array dictionaries.
-Trie.java: Defines the Trie data structure for dictionary operations.
-logTester.java: Debugging tool to compare compression/decompression logs.
+To **compress** a file:  
+`java lzw.Lzw input.txt`  
+→ Outputs: `input.lzw`
 
-## Limitations
+To **decompress** a file:  
+`java lzw.Lzw input.lzw`  
+→ Outputs: `input2.txt`
 
-Performance: The Trie in decompression is slow for large dictionaries; mitigated with a String array but could be further optimized.
-Memory: The String array in Decompress.java may use excessive memory for large files.
-Testing: Limited to log comparison; lacks automated unit tests.
-File Formats: Only supports .txt input and .lzw output.
-Error Messages: Minimal feedback for invalid inputs or errors.
+To **debug** using log files:  
+1. Uncomment the `ls` log initialization in `Compress.java` and `Decompress.java`  
+2. Run: `java lzw.logTester`  
+→ Compares `logCompress.txt` and `logDecompress.txt`
 
-## Potential Improvements
+---
 
-Add unit tests with JUnit for Trie and compression/decompression correctness.
-Optimize Trie lookups with a hash-based structure.
-Simplify bit-packing logic with a bit buffer.
-Use modern Java features (e.g., try-with-resources) for file I/O.
-Add a build system (e.g., Maven) for easier compilation.
+## 📁 Project Structure
 
-## Contributing
-Contributions are welcome! To contribute:
+| File              | Description                                              |
+|-------------------|----------------------------------------------------------|
+| `Lzw.java`        | Main entry point; determines compress or decompress mode |
+| `Compress.java`   | Core LZW compression logic with Trie dictionary          |
+| `Decompress.java` | Decompression logic using Trie and String array fallback |
+| `Trie.java`       | Custom Trie implementation for dictionary management     |
+| `logTester.java`  | Debugging tool to compare logs from compress/decompress  |
 
-Fork the repository.
-Create a feature branch (git checkout -b feature/YourFeature).
-Commit changes (git commit -m 'Add YourFeature').
-Push to the branch (git push origin feature/YourFeature).
-Open a pull request.
+---
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-Acknowledgments
+## ⚠️ Limitations
 
-Developed in 2004 at Waikato University. 
-Inspired by the LZW algorithm and its applications in data compression.
-Thanks to my professor for providing clear pseudocode to guide this implementation.
+- **Performance**: Trie during decompression can be slow for large files  
+- **Memory Use**: String arrays may consume excessive memory  
+- **Testing**: No unit tests, manual log comparison only  
+- **Input Format**: Only supports `.txt` and `.lzw`  
+- **Error Feedback**: Minimal messages for invalid input
+
+---
+
+## 🔧 Potential Improvements
+
+- Add JUnit-based unit tests
+- Replace Trie with hash-based structure for faster lookups
+- Refactor bit-packing logic into reusable class
+- Upgrade I/O with modern Java features (e.g. `try-with-resources`)
+- Add Maven/Gradle support for cleaner build management
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!  
+1. Fork the repo  
+2. Create a new branch  
+   `git checkout -b feature/YourFeature`  
+3. Commit and push changes  
+4. Open a pull request 🚀
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## 🙏 Acknowledgments
+
+- Developed at the University of Waikato (2004)  
+- Inspired by the classic LZW algorithm  
+- Thanks to my professor for providing foundational guidance and pseudocode
+
+---
 
 ∞ Daniel Kereama ∞
-
